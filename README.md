@@ -43,4 +43,4 @@ The metadata will be stored under the path of "Environment.getExternalStorageDir
 - Accelerometer [3 values]
 
 ##Notes
-This version of MedusaCam cannot detect the number of vehicles automatically due to the flawed image dataset. If you want to integrate the auto-detection function. Please refer to my code for [car detection on Android](http://www.youtube.com/watch?v=jL1dGA21ciA).
+This version of MedusaCam cannot detect the number of vehicles automatically due to the flawed image dataset. If you want to integrate the auto-detection function. Please refer to my code for [car detection on Android](http://www.youtube.com).
