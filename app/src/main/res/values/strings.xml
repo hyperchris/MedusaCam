@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">MedusaCam</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_main">TitleMain</string>
+    <string name="action_settings">Settings</string>
+
+    <!--UI settings-->
+    <string name="photo_btn_name">Take Photo</string>
+    <string name="video_btn_name">Take Video</string>
+    <string name="txt_name"> Welcome! Please email to liu851@usc.edu for any problem.-----------------------------------------------------------------------------</string>
+    <string name="sb_name"> Select number of cars in your photo: </string>
+    <string name="radiobutton1">Indoor</string>
+    <string name="radiobutton2">Outdoor</string>
+
+</resources>

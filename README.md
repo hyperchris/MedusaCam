@@ -7,7 +7,7 @@
 ##Function  
 Take photos and videos with metadata
 
-**How to Use
+##Usage
 - Turn on your GPS service and Internet access (Wifi or Cellular)
 - Install & Open the app
 - Click the button "Take Photo" 
@@ -16,6 +16,7 @@ Take photos and videos with metadata
 - Take more photos if needed
 
 ##Metadata
+The metadata will be stored under the path of "Environment.getExternalStorageDirectory() + /DCIM/Camera/MedusaCam_data". Specially, all photo's metadata is stored in a file called "Metadata.txt". The metadata of each video is stored in a unique file which has the name same as the video's file name.
 **For photo:**
 - time
 - indoor / outdoor (manually select)
