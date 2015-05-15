@@ -1,12 +1,12 @@
 # MedusaCam
 
 **Requirements:** 
-	*Smartphone:* Android 4.0 or above
-	*Developing Tool:* Android Studio
+  *Smartphone:* Android 4.0 or above
+  *Developing Tool:* Android Studio
 
-**Function:** take photos and videos with metadata
+**Function:** Take photos and videos with metadata
 
-**How to use:**
+**How to Use**
 - Turn on your GPS service and Internet access (Wifi or Cellular)
 - Install & Open the app
 - Click the button "Take Photo" 
@@ -14,7 +14,7 @@
 	- *Keep phone stable when taking and saving photo*
 - Take more photos if needed
 
-**Metadata**
+**Metadata**   
 *For photo:*
 - time
 - indoor / outdoor (manually select)
