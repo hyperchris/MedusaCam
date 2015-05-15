@@ -1,8 +1,8 @@
 # MedusaCam
 
-**Requirements:** 
-  *Smartphone:* Android 4.0 or above
-  *Developing Tool:* Android Studio
+**Requirements**  
+*Smartphone:* Android 4.0 or above  
+*Developing Tool:* Android Studio
 
 **Function:** Take photos and videos with metadata
 
