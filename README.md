@@ -1,9 +1,10 @@
 # MedusaCam  
-Version: 1.1
+**Version:** 1.2    
+**Update:** Fix the bug that sensors are unregistered when taking video
 
 ##Requirements
 **Smartphone:** Android 4.0 or above  
-**Developing Tool:**  Android Studio
+**Developing Tool:**  Android Studio 1.0.0 or above
 
 ##Function  
 Take photos and videos with metadata

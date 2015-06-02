@@ -29,8 +29,8 @@ import java.io.IOException;
 
 /**
  * Author: Xiaochen (Chris) Liu
- * Date: 0511
- * Version: v1.1
+ * Date: 0602
+ * Version: v1.2
  * Function: Record the metadata of photo and video
  * Comments:
  *      Not added yet: blurry detection
@@ -75,6 +75,7 @@ public class MainActivity extends Activity {
     private MyLocationListener locLis;
     public static double lng,lat,acc;             // gps values
     public static double thetaH;                  // camera parameters
+    private boolean dataRecording;                  // indicator of the status of photo/video recording
 
     /** Variables */
     public static String sceneTag;
@@ -195,7 +196,7 @@ public class MainActivity extends Activity {
     @Override
     protected void onResume() {
         super.onResume();
-        if(sensorClass != null) {
+        if(sensorClass != null && dataRecording == false) {
             sensorClass.openSensor(SensorClass.LIGHT_ON, SensorManager.SENSOR_DELAY_NORMAL);
             sensorClass.openSensor(SensorClass.ACC_ON, SensorManager.SENSOR_DELAY_NORMAL);
             sensorClass.openSensor(SensorClass.MAG_ON, SensorManager.SENSOR_DELAY_NORMAL);
@@ -218,7 +219,7 @@ public class MainActivity extends Activity {
     @Override
     protected void onPause() {
         super.onPause();
-        if(sensorClass != null) {
+        if(sensorClass != null && dataRecording == false) {
             sensorClass.sensorManager.unregisterListener(sensorClass.mySensorListener);
         }
         locMan.removeUpdates(locLis);
@@ -342,6 +343,7 @@ public class MainActivity extends Activity {
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         File f;
         try {
+            dataRecording = true;
             f = fileClass.setUpMediaFile(albumName, ACTION_TAKE_PHOTO);
             if (f == null)
                 return;
@@ -362,6 +364,7 @@ public class MainActivity extends Activity {
         Intent takeVideoIntent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
         File f;
         try {
+            dataRecording = true;
             f = fileClass.setUpMediaFile(albumName, ACTION_TAKE_VIDEO);
             if (f == null)
                 return;
@@ -381,6 +384,7 @@ public class MainActivity extends Activity {
      */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        dataRecording = false;
         if (requestCode == 0){                  // activity returned error
             transMsg(POST_MSG, "Activity returned error!");
         }
@@ -413,7 +417,7 @@ public class MainActivity extends Activity {
     public static String getMetadata (int type) {
 
         switch (type) {
-            case ACTION_TAKE_PHOTO:
+            case ACTION_TAKE_PHOTO:     // Show
                 int faceNum = faceClass.faceDetect(MainActivity.filePath);
                 int blurry = blurClass.blurDetect(MainActivity.filePath);
                 return
@@ -428,7 +432,20 @@ public class MainActivity extends Activity {
                         " " + sensorClass.getBearingInfo() +                            // bearing (3) - azimuth, pitch, roll
                         " " + lng + " " + lat + " " + acc;                              // GPS (3) - lng, lat, accuracy
 
-            case ACTION_TAKE_VIDEO:
+            case ACTION_TAKE_VIDEO:     // the format of video's metadata is same as that of photo
+                return
+                        0 +                                                                 // num of cars (default)
+                                " " + 0 +                                                           // num of faces (default)
+                                " " + 0 +                                                           // blurry or not (default)
+                                " " + 0 +                                                           // scene tag (default)
+                                " " + System.currentTimeMillis() / 1000 +                       // Video end time
+                                " 0 0 0" +                                                          // light sensor (default)
+                                " 0 0 0" +                                                          // acc value (3) - x,y,z (default)
+                                " 0 0 0" +                                                          // mag value (3) - x,y,z (default)
+                                " 0 0 0" +                                                          // bearing (3) (default)
+                                " 0 0 0";                                                           // GPS (3) (default)
+
+            case ACTION_META_VIDEO:     // The metadata recorded in the file of each video
                 return
                         System.currentTimeMillis() / 1000 +                             // timestamp (in sec)
                         " " + sensorClass.getSensorData(SensorClass.LIGHT_ON) +         // light sensor
@@ -437,18 +454,6 @@ public class MainActivity extends Activity {
                         " " + sensorClass.getBearingInfo() +                            // bearing (3) - azimuth, pitch, roll
                         " " + lng + " " + lat + " " + acc;                              // GPS (3) - lng, lat, accuracy
 
-            case ACTION_META_VIDEO:     // the format of video's metadata is same as that of photo
-                return
-                        0 +                                                                 // num of cars (default)
-                        " " + 0 +                                                           // num of faces (default)
-                        " " + 0 +                                                           // blurry or not (default)
-                        " " + 0 +                                                           // scene tag (default)
-                        " " + System.currentTimeMillis() / 1000 +                       // Video end time
-                        " 0 0 0" +                                                          // light sensor (default)
-                        " 0 0 0" +                                                          // acc value (3) - x,y,z (default)
-                        " 0 0 0" +                                                          // mag value (3) - x,y,z (default)
-                        " 0 0 0" +                                                          // bearing (3) (default)
-                        " 0 0 0";                                                           // GPS (3) (default)
 
             default:
                 return "error metadata!";

@@ -69,7 +69,7 @@ public class ThreadClass {
                         BufferedWriter bufferWriter = new BufferedWriter(fileWriter);
                         while (threadRunning[PROCESS_VIDEO]) {       // loop for recording metadata
                             try {
-                                bufferWriter.write(MainActivity.getMetadata(MainActivity.ACTION_TAKE_VIDEO) + "\n");   // metadata
+                                bufferWriter.write(MainActivity.getMetadata(MainActivity.ACTION_META_VIDEO) + "\n");   // metadata
                             } catch (IOException e) {
                                 e.printStackTrace();
                             }
@@ -91,7 +91,7 @@ public class ThreadClass {
                         if(videoFile.exists() && videoFile.length() > 100){ // insert the record in photo's metadata file
                             String tmpMsg =
                                             videoName + " " +
-                                            MainActivity.getMetadata(MainActivity.ACTION_META_VIDEO) + "\n";        // metadata
+                                            MainActivity.getMetadata(MainActivity.ACTION_TAKE_VIDEO) + "\n";        // metadata
                             MainActivity.fileClass.appendFile(dataPath, dataName, tmpMsg);
                             MainActivity.transMsg(MainActivity.POST_MSG, "video record stored in the metadata!\n ---------------------\n");
                         }
