@@ -15,7 +15,7 @@ Take photos and videos with metadata
 - Click the button "Take Photo"/"Take Video"
 - Take photo or video, then click "save" or "√" to return to MedusaCam 
 	- *Keep phone stable when saving photo/video*
-- Take more photos if needed
+- Take more photos / videos if needed
 
 ##Metadata 
 The metadata will be stored under the path of "Environment.getExternalStorageDirectory() + /DCIM/Camera/MedusaCam_data". Specially, all photo's metadata is stored in a file called "Metadata.txt". The metadata of each video is stored in a unique file which has the name same as the video's file name.  
