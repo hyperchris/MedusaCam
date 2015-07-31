@@ -438,7 +438,7 @@ public class MainActivity extends Activity {
                                 " " + 0 +                                                           // num of faces (default)
                                 " " + 0 +                                                           // blurry or not (default)
                                 " " + 0 +                                                           // scene tag (default)
-                                " " + System.currentTimeMillis() / 1000 +                       // Video end time
+                                " " + System.currentTimeMillis() +		              		// Video end time
                                 " 0 0 0" +                                                          // light sensor (default)
                                 " 0 0 0" +                                                          // acc value (3) - x,y,z (default)
                                 " 0 0 0" +                                                          // mag value (3) - x,y,z (default)
@@ -447,7 +447,7 @@ public class MainActivity extends Activity {
 
             case ACTION_META_VIDEO:     // The metadata recorded in the file of each video
                 return
-                        System.currentTimeMillis() / 1000 +                             // timestamp (in sec)
+                        System.currentTimeMillis() +	                             // timestamp (in sec)
                         " " + sensorClass.getSensorData(SensorClass.LIGHT_ON) +         // light sensor
                         " " + sensorClass.getSensorData(SensorClass.ACC_ON) +           // acc value (3) - x,y,z
                         " " + sensorClass.getSensorData(SensorClass.MAG_ON) +           // mag value (3) - x,y,z
