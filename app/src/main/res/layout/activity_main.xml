@@ -24,7 +24,7 @@
             android:text="@string/photo_btn_name"
             android:background="#8B0000"
             android:clickable="true"
-            android:textSize="24dp"
+            android:textSize="15dp"
             android:textStyle="bold"
             android:textColor="#F5F5F5" />
 
@@ -41,16 +41,33 @@
             android:paddingRight="@dimen/activity_horizontal_margin"
             android:background="#0000A0"
             android:clickable="true"
-            android:textSize="24dp"
+            android:textSize="15dp"
             android:textStyle="bold"
             android:textColor="#F5F5F5" />
-        </LinearLayout>
+        <TextView
+            android:layout_width="@dimen/activity_horizontal_margin"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/data_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:text="@string/data_btn_name"
+            android:background="#113400"
+            android:clickable="true"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:textColor="#F5F5F5" />
+
+
+    </LinearLayout>
 
     <ScrollView
         android:id="@+id/scroll"
         android:layout_width="fill_parent"
         android:layout_below="@id/linear_layout"
-        android:layout_height="250dp"
+        android:layout_height="100dp"
         android:background="#111111"
         android:layout_alignParentEnd="true"
         android:fillViewport="false">
@@ -77,6 +94,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_below="@id/rg_name"
+
         android:layout_x="5px">
 
         <RadioButton
@@ -88,7 +106,7 @@
             android:checked="true"
             android:clickable="true"
             android:singleLine="false"
-            android:textSize="20dp" />
+            android:textSize="15dp" />
 
         <RadioButton
             android:id="@+id/radiobutton2"
@@ -98,8 +116,9 @@
             android:text="@string/radiobutton2"
             android:enabled="true"
             android:checked="false"
-            android:textSize="20dp" />
+            android:textSize="15dp" />
     </RadioGroup>
+
 
     <TextView
         android:id="@+id/sb_name"
@@ -117,6 +136,185 @@
         android:max="6"
         android:progress="0"
     />
+
+<!--
+
+CheckBox and TextView for GPS Location
+
+-->
+   <CheckBox
+        android:id = "@+id/gps_location_check"
+        android:layout_below="@+id/seekBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/gps_location_text"
+        android:checked="false"
+        android:clickable="true"
+        android:textColor="#aaaaaa"
+        android:textSize="10dp"
+        android:onClick="showSensorData"
+        />
+
+    <TextView
+        android:id="@+id/gps_location_text"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@id/seekBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="GPS Location"
+        android:textColor="#aaaaaa"
+        android:textSize = "15dp"/>
+
+<!--
+    <CheckBox
+        android:id = "@+id/cars_check"
+        android:layout_below="@+id/gps_location_check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cars_text"
+        android:checked="false"
+        android:clickable="true"
+        android:textColor="#aaaaaa"
+        android:textSize="10dp"
+        android:onClick="showSensorData"/>
+
+    <TextView
+        android:id="@+id/cars_text"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/gps_location_check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Number of Cars"
+        android:textColor="#aaaaaa"
+        android:textSize = "15dp"/>
+
+-->
+
+
+    <CheckBox
+        android:id = "@+id/angleOfView_check"
+        android:layout_below="@+id/gps_location_check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/angleOfView_text"
+        android:checked="false"
+        android:clickable="true"
+        android:textColor="#aaaaaa"
+        android:textSize="10dp"
+        android:onClick="showSensorData"/>
+
+    <TextView
+        android:id="@+id/angleOfView_text"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/gps_location_check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Angle Of View"
+        android:textColor="#aaaaaa"
+        android:textSize = "15dp"/>
+
+
+
+
+    <CheckBox
+        android:id = "@+id/lightSensor_check"
+        android:layout_below="@+id/angleOfView_check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/lightSensor_text"
+        android:checked="false"
+        android:clickable="true"
+        android:textColor="#aaaaaa"
+        android:textSize="10dp"
+        android:onClick="showSensorData"/>
+
+    <TextView
+        android:id="@+id/lightSensor_text"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/angleOfView_check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Light Sensor"
+        android:textColor="#aaaaaa"
+        android:textSize = "15dp"/>
+
+
+
+
+    <CheckBox
+        android:id = "@+id/accSensor_check"
+        android:layout_below="@+id/lightSensor_check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/accValue_text"
+        android:checked="false"
+        android:clickable="true"
+        android:textColor="#aaaaaa"
+        android:textSize="10dp"
+        android:onClick="showSensorData"/>
+
+    <TextView
+        android:id="@+id/accSensor_text"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/lightSensor_check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Acc Sensor"
+        android:textColor="#aaaaaa"
+        android:textSize = "15dp"/>
+
+
+
+
+    <CheckBox
+        android:id = "@+id/magSensor_check"
+        android:layout_below="@+id/accSensor_check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/magValue_text"
+        android:checked="false"
+        android:clickable="true"
+        android:textColor="#aaaaaa"
+        android:textSize="10dp"
+        android:onClick="showSensorData"/>
+
+    <TextView
+        android:id="@+id/magSensor_text"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/accSensor_check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mag Sensor"
+        android:textColor="#aaaaaa"
+        android:textSize = "15dp"/>
+
+
+
+    <CheckBox
+        android:id = "@+id/bearingInfo_check"
+        android:layout_below="@+id/magSensor_check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/bearingInfo_text"
+        android:checked="false"
+        android:clickable="true"
+        android:textColor="#aaaaaa"
+        android:textSize="10dp"
+        android:onClick="showSensorData"/>
+
+    <TextView
+        android:id="@+id/bearingInfo_text"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/magSensor_check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bearing Info"
+        android:textColor="#aaaaaa"
+        android:textSize = "15dp"/>
+
+
+
+
 
 
 </RelativeLayout>

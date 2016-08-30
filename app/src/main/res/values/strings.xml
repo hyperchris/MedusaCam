@@ -13,5 +13,12 @@
     <string name="sb_name"> Select number of cars in your photo: </string>
     <string name="radiobutton1">Indoor</string>
     <string name="radiobutton2">Outdoor</string>
-
+    <string name="gps_location_text">GPS Location</string>
+    <string name="cars_text">Number of Cars</string>
+    <string name="angleOfView_text">Angle of View</string>
+    <string name="lightSensor_text">Light Sensor</string>
+    <string name="accValue_text">Acc Value</string>
+    <string name="magValue_text">Mag Value</string>
+    <string name="bearingInfo_text">Bearing Info</string>
+    <string name="data_btn_name">Take Data</string>
 </resources>

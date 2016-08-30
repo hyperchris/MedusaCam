@@ -80,7 +80,7 @@ public class FileClass {
             return;
         }
 
-        MainActivity.transMsg(MainActivity.POST_MSG,"metadata stored! \n ---------------------------\n");
+        //MainActivity.transMsg(MainActivity.POST_MSG,"metadata stored! \n ---------------------------\n");
     }
 
     /*
