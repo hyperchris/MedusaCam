@@ -106,6 +106,7 @@ public class MainActivity extends Activity {
     public static Timer timerClassObj;             //timer class to for displaying sensor data after every second
     public static Timer dataRecordingTimerClassObj; //timer class for recording data multiple times per second
     public int counter = 0;
+    String dataFileNameWithTS;
 
 
     /** UI widgets */
@@ -377,6 +378,9 @@ public class MainActivity extends Activity {
 
 
 
+
+
+
         photo_btn.setEnabled(false);
         video_btn.setEnabled(false);        // video function disabled
         data_btn.setEnabled(false);
@@ -465,8 +469,13 @@ public class MainActivity extends Activity {
                 try {
                     Log.v("Data Button", "Clicked");
                     isDataRecording = !isDataRecording;
-                    if (isDataRecording)
+
+                    if (isDataRecording) {
+                        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmssSSS").format(new Date());
+                        dataFileNameWithTS = "MID_" + timeStamp;
+
                         transMsg(POST_MSG, "Started recording data");
+                    }
                     else
                         transMsg(POST_MSG, "Stopped recording data");
                     //takeData(ALBUM_NAME);      // input album name
@@ -718,8 +727,8 @@ public class MainActivity extends Activity {
     {
 
         try {
-            MainActivity.fileClass.appendFile(dataPath, "Data.txt",
-                    "MID_" + customTimeStamp +
+            MainActivity.fileClass.appendFile(dataPath, dataFileNameWithTS + ".txt",
+                     customTimeStamp +
                             "_" +
                             getMetadata(ACTION_TAKE_DATA) +
                             "\n");
